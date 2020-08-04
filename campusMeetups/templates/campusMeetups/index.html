@@ -1,0 +1,30 @@
+{% extends "campusMeetups/layout.html" %}
+{% load static %}
+{% block navtag %}
+    <a href="{% url 'logout' %}" class="w3-bar-item w3-button w3-hover-white">Logout</a>
+    <button id="profile" class="w3-bar-item w3-button w3-hover-white">My Profile</button>
+    <button id="enrolled" class="w3-bar-item w3-button w3-hover-white">Enrolled</button>
+    <button id="createMeetup" class="w3-bar-item w3-button w3-hover-white">Create Meetup!</button>
+    <button id="activePosts" class="w3-bar-item w3-button w3-hover-white">Active Posts</button>
+    <button id="map" class="w3-bar-item w3-button w3-hover-white">School Map</button>
+{% endblock %}
+{% block body %}
+<div id="profile_view">
+        <h1>Profile view</h1>
+</div>
+<div id="create_view">
+    <h1>Create Meetup</h1>
+    <form method="post">
+        {{form.as_p}}
+        <input type="submit" value="Save" />
+    </form>
+</div>
+<div id="meetups_view"></div>
+<div id="show_map"></div>
+<div id="enrolled_view"></div>
+<input type="hidden" name="signUp" id="signUplink" value="{% url 'enrollUser' %}" />
+{% endblock %}
+{% block script %}
+
+<script src="{% static 'campusMeetups/controller.js' %}"></script>
+{% endblock %}
